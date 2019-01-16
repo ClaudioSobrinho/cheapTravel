@@ -52,20 +52,23 @@ class FirstScreenViewModelTests: XCTestCase {
 class MockConnectionsDataFetcher: ConnectionsDataFetcherProtocol {
     
     var connections = [Connection]()
+    var places = [Place]()
     
     init() {
         let firstOriginPlace = Place(name: "London", coordinates: Coordinates(lat: 51.5285582, long: -0.241681))
         let firstDestinationPlace = Place(name: "Tokyo", coordinates: Coordinates(lat: 35.652832, long: 139.839478))
         let firstConnection = Connection(origin: firstOriginPlace, destination: firstDestinationPlace, price: 600)
         connections.append(firstConnection)
+        places.append(firstOriginPlace)
+        places.append(firstDestinationPlace)
         let secondOriginPlace = Place(name: "London", coordinates: Coordinates(lat: 51.5285582, long: -0.241681))
         let secondDestinationPlace = Place(name: "Porto", coordinates: Coordinates(lat: 41.14961, long: -8.61099))
         let secondConnection = Connection(origin: secondOriginPlace, destination: secondDestinationPlace, price: 50)
         connections.append(secondConnection)
+        places.append(secondDestinationPlace)
     }
     
-    func fetchConnections(completion: ([Connection]?,_ errorMessage: String?)->()) {
-        completion(connections, nil)
+    func fetchData(completion: (([Connection],[Place])?,_ errorMessage: String?)->()) {
+        completion((connections, places), nil)
     }
-    
 }

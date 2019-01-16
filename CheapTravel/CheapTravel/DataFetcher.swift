@@ -9,12 +9,12 @@
 import Foundation
 
 protocol ConnectionsDataFetcherProtocol {
-    func fetchConnections(completion: ([Connection]?,_ errorMessage: String?)->())
+    func fetchData(completion: (([Connection],[Place])?,_ errorMessage: String?)->())
 }
 
 class ConnectionDataFetcher: ConnectionsDataFetcherProtocol {
     
-    func fetchConnections(completion: ([Connection]?,_ errorMessage: String?)->()) {
+    func fetchData(completion: (([Connection],[Place])?,_ errorMessage: String?)->()) {
         guard let path = Bundle.main.path(forResource: "connections", ofType: "json") else {
             completion(nil, "There is a problem in fetching places for you.")
             return
@@ -27,14 +27,15 @@ class ConnectionDataFetcher: ConnectionsDataFetcherProtocol {
                 return
             }
             guard let results = jsonResult["connections"] as? [[String: Any]] else { return }
-            completion(self.connectionsListFrom(results: results), nil)            
+            completion(self.dataFrom(results: results), nil)
         } catch {
             completion(nil, "There is a problem in fetching places for you.")
         }
     }
     
-    private func connectionsListFrom(results: [[String: Any]]) -> [Connection] {
+    private func dataFrom(results: [[String: Any]]) -> ([Connection], [Place]) {
         var connections = [Connection]()
+        var places = [Place]()
         for connection in results {
             guard let coordinatesList = connection["coordinates"] as? [String: Any],
                 let origin = coordinatesList["from"] as? [String: Any],
@@ -49,9 +50,17 @@ class ConnectionDataFetcher: ConnectionsDataFetcherProtocol {
             let destinationPlace = Place(name: connection["to"] as! String, coordinates: destinationCoordinates)
             
             let connection = Connection(origin: originPlace, destination: destinationPlace, price:connection["price"] as! Int)
+            
+            if !places.contains(originPlace) {
+                places.append(originPlace)
+            }
+            
+            if !places.contains(destinationPlace) {
+                places.append(destinationPlace)
+            }
             connections.append(connection)
         }
-        return connections
+        return (connections, places)
     }
     
 }

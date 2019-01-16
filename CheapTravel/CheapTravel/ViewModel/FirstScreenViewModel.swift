@@ -20,7 +20,12 @@ class FirstScreenViewModel {
     // Input
     var viewDidLoad: () -> () = { }
     
-    private var dataModel: [Connection]! {
+    private var connectionsDataModel: [Connection]! {
+        didSet {
+            configureOutput()
+        }
+    }
+    private var placesDataModel: [Place]!{
         didSet {
             configureOutput()
         }
@@ -29,17 +34,18 @@ class FirstScreenViewModel {
     init(dataFetcher: ConnectionsDataFetcherProtocol) {
         self.dataFetcher = dataFetcher
         viewDidLoad = { [weak self] in
-            self?.getPlacesData()
+            self?.getData()
         }
     }
     
-    private func getPlacesData() {
-        dataFetcher.fetchConnections { [weak self] (connectionList, errorMessage) in
-            guard let connections = connectionList else {
+    private func getData() {
+        dataFetcher.fetchData{ [weak self] (data, errorMessage) in
+            guard let connections = data?.0, let places = data?.1 else {
                 self?.displayError(errorMessage!)
                 return
             }
-            self?.dataModel = connections
+            self?.connectionsDataModel = connections
+            self?.placesDataModel = places
         }
     }
     
