@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FirstScreenViewController.swift
 //  CheapTravel
 //
 //  Created by Claudio Sobrinho on 1/15/19.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FirstScreenViewController: UIViewController {
 
+    let viewModel = FirstScreenViewModel(dataFetcher: ConnectionDataFetcher())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+         viewModel.viewDidLoad()
     }
-
-
 }
 

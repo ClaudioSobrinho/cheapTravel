@@ -10,6 +10,6 @@ import Foundation
 
 struct Place: Equatable {
 
-    var name: String
-    var coordinates: Coordinates
+    let name: String
+    let coordinates: Coordinates
 }

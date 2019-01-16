@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Coordinates: Equatable {
+struct Coordinates: Equatable, Decodable {
     
-    var lat: Double
-    var long: Double
+    let lat: Double
+    let long: Double
 }

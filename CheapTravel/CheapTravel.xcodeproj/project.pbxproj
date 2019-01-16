@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		74B73EEC21EE81CF001AD429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B73EEB21EE81CF001AD429 /* AppDelegate.swift */; };
-		74B73EEE21EE81CF001AD429 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B73EED21EE81CF001AD429 /* ViewController.swift */; };
+		74B73EEE21EE81CF001AD429 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B73EED21EE81CF001AD429 /* FirstScreenViewController.swift */; };
 		74B73EF121EE81CF001AD429 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B73EEF21EE81CF001AD429 /* Main.storyboard */; };
 		74B73EF321EE81D0001AD429 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B73EF221EE81D0001AD429 /* Assets.xcassets */; };
 		74B73EF621EE81D0001AD429 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B73EF421EE81D0001AD429 /* LaunchScreen.storyboard */; };
@@ -20,6 +20,9 @@
 		74B73F1921EEB1A3001AD429 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B73F1821EEB1A3001AD429 /* Place.swift */; };
 		74B73F1B21EEB29E001AD429 /* ConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B73F1A21EEB29E001AD429 /* ConnectionTests.swift */; };
 		74B73F1D21EEB3D9001AD429 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B73F1C21EEB3D9001AD429 /* Connection.swift */; };
+		74B73F1F21EEC96E001AD429 /* FirstScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B73F1E21EEC96E001AD429 /* FirstScreenViewModelTests.swift */; };
+		74B73F2121EECBC9001AD429 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B73F2021EECBC9001AD429 /* DataFetcher.swift */; };
+		74B73F2521EECD55001AD429 /* FirstScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B73F2421EECD55001AD429 /* FirstScreenViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +38,7 @@
 /* Begin PBXFileReference section */
 		74B73EE821EE81CF001AD429 /* CheapTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheapTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B73EEB21EE81CF001AD429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		74B73EED21EE81CF001AD429 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		74B73EED21EE81CF001AD429 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		74B73EF021EE81CF001AD429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74B73EF221EE81D0001AD429 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74B73EF521EE81D0001AD429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,6 +53,9 @@
 		74B73F1821EEB1A3001AD429 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		74B73F1A21EEB29E001AD429 /* ConnectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionTests.swift; sourceTree = "<group>"; };
 		74B73F1C21EEB3D9001AD429 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		74B73F1E21EEC96E001AD429 /* FirstScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewModelTests.swift; sourceTree = "<group>"; };
+		74B73F2021EECBC9001AD429 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		74B73F2421EECD55001AD429 /* FirstScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,11 +98,11 @@
 			isa = PBXGroup;
 			children = (
 				74B73EEB21EE81CF001AD429 /* AppDelegate.swift */,
+				74B73F2021EECBC9001AD429 /* DataFetcher.swift */,
 				74B73F0E21EE81F7001AD429 /* Resources */,
 				74B73F0D21EE81EE001AD429 /* Model */,
 				74B73F0C21EE81E7001AD429 /* ViewModel */,
 				74B73F0B21EE81E2001AD429 /* View */,
-				74B73EED21EE81CF001AD429 /* ViewController.swift */,
 				74B73EEF21EE81CF001AD429 /* Main.storyboard */,
 				74B73EF421EE81D0001AD429 /* LaunchScreen.storyboard */,
 				74B73EF721EE81D0001AD429 /* Info.plist */,
@@ -112,6 +118,7 @@
 				74B73F1221EE83A7001AD429 /* CoordinatesTests.swift */,
 				74B73F1621EE875A001AD429 /* PlaceTests.swift */,
 				74B73F1A21EEB29E001AD429 /* ConnectionTests.swift */,
+				74B73F1E21EEC96E001AD429 /* FirstScreenViewModelTests.swift */,
 			);
 			path = CheapTravelTests;
 			sourceTree = "<group>";
@@ -119,6 +126,7 @@
 		74B73F0B21EE81E2001AD429 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				74B73EED21EE81CF001AD429 /* FirstScreenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -126,6 +134,7 @@
 		74B73F0C21EE81E7001AD429 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				74B73F2421EECD55001AD429 /* FirstScreenViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -251,9 +260,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74B73EEE21EE81CF001AD429 /* ViewController.swift in Sources */,
+				74B73EEE21EE81CF001AD429 /* FirstScreenViewController.swift in Sources */,
 				74B73F1521EE85C7001AD429 /* Coordinates.swift in Sources */,
+				74B73F2521EECD55001AD429 /* FirstScreenViewModel.swift in Sources */,
 				74B73F1D21EEB3D9001AD429 /* Connection.swift in Sources */,
+				74B73F2121EECBC9001AD429 /* DataFetcher.swift in Sources */,
 				74B73EEC21EE81CF001AD429 /* AppDelegate.swift in Sources */,
 				74B73F1921EEB1A3001AD429 /* Place.swift in Sources */,
 			);
@@ -265,6 +276,7 @@
 			files = (
 				74B73F1321EE83A7001AD429 /* CoordinatesTests.swift in Sources */,
 				74B73F1721EE875A001AD429 /* PlaceTests.swift in Sources */,
+				74B73F1F21EEC96E001AD429 /* FirstScreenViewModelTests.swift in Sources */,
 				74B73F0121EE81D1001AD429 /* CheapTravelTests.swift in Sources */,
 				74B73F1B21EEB29E001AD429 /* ConnectionTests.swift in Sources */,
 			);

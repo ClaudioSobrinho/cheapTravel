@@ -10,7 +10,7 @@ import Foundation
 
 struct Connection {
     
-    var origin: Place
-    var destination: Place
-    var price: Int
+    let origin: Place
+    let destination: Place
+    let price: Int
 }
