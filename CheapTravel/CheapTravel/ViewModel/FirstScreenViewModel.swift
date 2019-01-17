@@ -56,4 +56,12 @@ class FirstScreenViewModel {
         return placesDataModel.first(where: { $0.name == text })
     }
     
+    func findConnection(origin: String, destination: String) -> Connection? {
+        let originPlace = placesDataModel.first(where: { $0.name == origin })
+        let destinationPlace = placesDataModel.first(where: { $0.name == destination })
+        return connectionsDataModel.first(where: { $0.origin == originPlace && $0.destination == destinationPlace ||
+            $0.origin == destinationPlace && $0.destination == originPlace
+        })
+    }
+    
 }
