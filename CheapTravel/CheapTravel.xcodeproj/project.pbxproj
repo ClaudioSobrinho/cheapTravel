@@ -23,6 +23,7 @@
 		74B73F1F21EEC96E001AD429 /* FirstScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B73F1E21EEC96E001AD429 /* FirstScreenViewModelTests.swift */; };
 		74B73F2121EECBC9001AD429 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B73F2021EECBC9001AD429 /* DataFetcher.swift */; };
 		74B73F2521EECD55001AD429 /* FirstScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B73F2421EECD55001AD429 /* FirstScreenViewModel.swift */; };
+		74B73F2921F03495001AD429 /* WeightedGraphNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B73F2821F03495001AD429 /* WeightedGraphNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		74B73F1E21EEC96E001AD429 /* FirstScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewModelTests.swift; sourceTree = "<group>"; };
 		74B73F2021EECBC9001AD429 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		74B73F2421EECD55001AD429 /* FirstScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewModel.swift; sourceTree = "<group>"; };
+		74B73F2821F03495001AD429 /* WeightedGraphNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightedGraphNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				74B73EEB21EE81CF001AD429 /* AppDelegate.swift */,
 				74B73F2021EECBC9001AD429 /* DataFetcher.swift */,
+				74B73F2821F03495001AD429 /* WeightedGraphNode.swift */,
 				74B73F0E21EE81F7001AD429 /* Resources */,
 				74B73F0D21EE81EE001AD429 /* Model */,
 				74B73F0C21EE81E7001AD429 /* ViewModel */,
@@ -263,6 +266,7 @@
 				74B73EEE21EE81CF001AD429 /* FirstScreenViewController.swift in Sources */,
 				74B73F1521EE85C7001AD429 /* Coordinates.swift in Sources */,
 				74B73F2521EECD55001AD429 /* FirstScreenViewModel.swift in Sources */,
+				74B73F2921F03495001AD429 /* WeightedGraphNode.swift in Sources */,
 				74B73F1D21EEB3D9001AD429 /* Connection.swift in Sources */,
 				74B73F2121EECBC9001AD429 /* DataFetcher.swift in Sources */,
 				74B73EEC21EE81CF001AD429 /* AppDelegate.swift in Sources */,

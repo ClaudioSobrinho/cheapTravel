@@ -19,7 +19,7 @@ class FirstScreenViewController: UIViewController, MKMapViewDelegate {
     
     //    MARK: Properties
     let viewModel = FirstScreenViewModel(dataFetcher: ConnectionDataFetcher())
-    var visiblePolyline = MKGeodesicPolyline()
+    var visiblePolylines = [MKGeodesicPolyline()]
     
     //    MARK: Lifecycle
     override func viewDidLoad() {
@@ -39,27 +39,29 @@ class FirstScreenViewController: UIViewController, MKMapViewDelegate {
     
     //    MARK: Actions
     @IBAction func didTouchFindButton(_ sender: Any) {
-        mapView.removeOverlay(visiblePolyline)
-        guard let originText = originTextField.text else { return }
-        guard let destinationText = destinationTextField.text else { return }
-        if let place = viewModel.findPlace(from: originText) {
-            let placeCoordinates = place.coordinates.locationCoordinate2D()
-            mapView.setCenter(placeCoordinates, animated: true)
+        clearPolylines()
+        guard let originText = originTextField.text,
+            let destinationText = destinationTextField.text,
+            let originPlace = viewModel.findPlace(from: originText),
+            let destinationPlace = viewModel.findPlace(from: destinationText) else {
+                priceLabel.text = "Sorry, no flights available"
+                return
         }
-        if let connection = viewModel.findConnection(origin: originText, destination: destinationText) {
-            priceLabel.text = "\(connection.price)"
-            visiblePolyline = MKGeodesicPolyline(coordinates: [connection.origin.coordinates.locationCoordinate2D(), connection.destination.coordinates.locationCoordinate2D()], count: 2)
-            mapView.addOverlay(visiblePolyline)
-            setVisibleMapArea(polyline: visiblePolyline, edgeInsets: UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0))
-        } else {
-            priceLabel.text = "Sorry, no flights available"
+        
+        let path = viewModel.findPath(origin: originPlace, destination: destinationPlace)
+        
+        if let cost = path.1 {
+            priceLabel.text = "\(cost)"
         }
+        
+        drawPolylines(for: path.0)
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
     
+    //    MARK: Mapview
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay.isKind(of: MKPolyline.self) {
 
@@ -75,6 +77,26 @@ class FirstScreenViewController: UIViewController, MKMapViewDelegate {
     
     func setVisibleMapArea(polyline: MKPolyline, edgeInsets: UIEdgeInsets, animated: Bool = false) {
         mapView.setVisibleMapRect(polyline.boundingMapRect, edgePadding: edgeInsets, animated: animated)
+    }
+    
+    func drawPolylines(for connections: [Connection]) {
+        for connection in connections {
+            let polyline = MKGeodesicPolyline(coordinates: [connection.origin.coordinates.locationCoordinate2D(), connection.destination.coordinates.locationCoordinate2D()], count: 2)
+            
+            visiblePolylines.append(polyline)
+            mapView.addOverlay(polyline)
+        }
+        guard let firstConnection = connections.first, let lastConnection = connections.last else {
+            return
+        }
+        let summaryPolyline = MKGeodesicPolyline(coordinates: [firstConnection.origin.coordinates.locationCoordinate2D(), lastConnection.destination.coordinates.locationCoordinate2D()], count: 2)
+        setVisibleMapArea(polyline: summaryPolyline, edgeInsets: UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0))
+    }
+    
+    func clearPolylines() {
+        for polyline in visiblePolylines {
+            mapView.removeOverlay(polyline)
+        }
     }
 }
 
