@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class FirstScreenViewController: UIViewController, MKMapViewDelegate {
+class FirstScreenViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate {
 
     //    MARK: Outlets
     @IBOutlet weak var originTextField: UITextField!
@@ -90,7 +90,7 @@ class FirstScreenViewController: UIViewController, MKMapViewDelegate {
             return
         }
         let summaryPolyline = MKGeodesicPolyline(coordinates: [firstConnection.origin.coordinates.locationCoordinate2D(), lastConnection.destination.coordinates.locationCoordinate2D()], count: 2)
-        setVisibleMapArea(polyline: summaryPolyline, edgeInsets: UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0))
+        setVisibleMapArea(polyline: summaryPolyline, edgeInsets: UIEdgeInsets(top: 50.0, left: 50.0, bottom: 50.0, right: 50.0))
     }
     
     func clearPolylines() {
