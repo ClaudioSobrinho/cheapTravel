@@ -14,7 +14,6 @@ class FirstScreenViewModel {
     
     // Output
     var displayError:(String)->() = { _ in }
-    var numberOfRows = 0
     var title = ""
     
     // Input
@@ -51,6 +50,10 @@ class FirstScreenViewModel {
     
     private func configureOutput() {
         title = "Cheap Flights"
+    }
+    
+    func findPlace(from text: String) -> Place? {
+        return placesDataModel.first(where: { $0.name == text })
     }
     
 }
