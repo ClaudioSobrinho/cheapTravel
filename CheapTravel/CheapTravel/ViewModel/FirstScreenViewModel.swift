@@ -113,4 +113,14 @@ class FirstScreenViewModel {
         return Int(total)
     }
     
+    //    MARK: Autocomplete
+    func getAutocompletePossibilities() -> [String] {
+        var possibilities = [String]()
+        
+        for place in placesDataModel {
+            possibilities.append(place.name)
+        }
+        return possibilities
+    }
+    
 }
