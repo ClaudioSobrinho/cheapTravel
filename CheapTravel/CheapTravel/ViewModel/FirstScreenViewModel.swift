@@ -36,11 +36,24 @@ class FirstScreenViewModel {
     init(dataFetcher: ConnectionsDataFetcherProtocol) {
         self.dataFetcher = dataFetcher
         viewDidLoad = { [weak self] in
-            self?.getData()
+            self?.getRemoteData()
         }
     }
     
-    private func getData() {
+    private func getRemoteData() {
+        dataFetcher.fetchRemoteData{ [weak self] (data, errorMessage) in
+            guard let connections = data?.0, let places = data?.1 else {
+                self?.displayError(errorMessage!)
+                self?.getLocalData()
+                return
+            }
+            self?.connectionsDataModel = connections
+            self?.placesDataModel = places
+            self?.fillGraph()
+        }
+    }
+    
+    private func getLocalData() {
         dataFetcher.fetchData{ [weak self] (data, errorMessage) in
             guard let connections = data?.0, let places = data?.1 else {
                 self?.displayError(errorMessage!)
