@@ -12,12 +12,13 @@ import GameplayKit
 class FirstScreenViewModel {
     
     var dataFetcher: ConnectionsDataFetcherProtocol!
+    //TODO: use this to reactive bind
     
-    // Output
+    //    MARK: Output
     var displayError:(String)->() = { _ in }
     var title = ""
     
-    // Input
+    //    MARK: Input
     var viewDidLoad: () -> () = { }
     
     private var connectionsDataModel: [Connection]! {
