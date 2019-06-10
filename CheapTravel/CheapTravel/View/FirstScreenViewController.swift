@@ -142,6 +142,7 @@ class FirstScreenViewController: UIViewController, MKMapViewDelegate, UITextFiel
         }
     }
     
+    //    MARK: Auxiliar functions
     func getAutocompleteSuggestions(userText: String) -> [String]{
         var possibleMatches: [String] = []
         for item in viewModel.getAutocompletePossibilities() { //2
