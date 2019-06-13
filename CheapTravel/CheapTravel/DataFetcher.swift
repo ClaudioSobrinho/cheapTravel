@@ -15,9 +15,11 @@ protocol ConnectionsDataFetcherProtocol {
 
 class ConnectionDataFetcher: ConnectionsDataFetcherProtocol {
 
+    //  MARK: Properties
     private static let baseURL = "https://raw.githubusercontent.com/TuiMobilityHub/"
     private static let connectionsJsonURL = "ios-code-challenge/master/connections.json"
     
+    //  MARK: Functions
     func fetchRemoteData(completion: @escaping (([Connection],[Place])?,_ errorMessage: String?)->()) {
         guard let url = URL(string: "\(ConnectionDataFetcher.baseURL)\(ConnectionDataFetcher.connectionsJsonURL)") else {
             completion(nil, "🛑🌐 There is a problem in fetching places for you. 🌐🛑")
