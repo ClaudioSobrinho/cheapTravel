@@ -10,6 +10,8 @@ import Foundation
 import GameplayKit
 
 class WeightedGraphNode: GKGraphNode {
+    
+    //  MARK: Properties
     let place: Place
     var travelCost: [GKGraphNode: Float] = [:]
     
