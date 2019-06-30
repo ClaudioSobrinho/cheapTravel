@@ -15,6 +15,7 @@ class WeightedGraphNode: GKGraphNode {
     let place: Place
     var travelCost: [GKGraphNode: Float] = [:]
     
+    //  MARK: Init
     init(place: Place) {
         self.place = place
         super.init()
